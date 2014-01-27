@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" 
+    android:layout_gravity="center"
+    android:paddingTop="30dp"
+    android:scrollbars="none" >
+
+    <FrameLayout
+        android:gravity="center" 
+    	android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-50dip"
+            android:layout_marginTop="425dp" >
+
+            <ImageView
+                android:id="@id/hot_reflected_img_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@id/hot_reflected_img_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="224dip" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@id/latest_layout"
+            android:layout_marginLeft="-50dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <FrameLayout
+                android:id="@id/latest_recommend_fl_0"
+                android:layout_width="564dp"
+                android:layout_height="544dp" >
+
+                <ImageView
+                    android:id="@id/latest_recommend_bg_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/shadow_big_left" />
+
+                <ImageView
+                    android:id="@id/latest_recommend_poster_0"
+                    android:layout_width="264dp"
+                    android:layout_height="405dp"
+                    android:layout_marginLeft="115dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:nextFocusDown="@id/main_search"
+                    android:nextFocusRight="@id/latest_recommend_poster_1"
+                    android:nextFocusUp="@id/latest_recommend"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/main_268x404" />
+
+                <TextView
+                    android:id="@id/latest_recommend_text_0"
+                    style="@style/TextOnMainLayout_new"
+                    android:layout_width="292dip"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="395dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@id/latest_recommend_fl_1"
+                android:layout_width="555dp"
+                android:layout_height="377dp"
+                android:layout_marginLeft="195dip" >
+
+                <ImageView
+                    android:id="@id/latest_recommend_bg_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/shadow_top_center" />
+
+                <ImageView
+                    android:id="@id/latest_recommend_poster_1"
+                    android:layout_width="200dip"
+                    android:layout_height="200dip"
+                    android:layout_marginLeft="190dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:nextFocusDown="@id/latest_recommend_poster_2"
+                    android:nextFocusLeft="@id/latest_recommend_poster_0"
+                    android:nextFocusUp="@id/latest_recommend"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/main_200x200" />
+
+                <TextView
+                    android:id="@id/latest_recommend_text_1"
+                    style="@style/TextOnMainLayout_new"
+                    android:layout_width="220dip"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="180dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@id/latest_recommend_fl_2"
+                android:layout_width="521dp"
+                android:layout_height="438dp"
+                android:layout_marginLeft="224dip"
+                android:layout_marginTop="100dip" >
+
+                <ImageView
+                    android:id="@id/latest_recommend_bg_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/shadow_right_bottom" />
+
+                <ImageView
+                    android:id="@id/latest_recommend_poster_2"
+                    android:layout_width="200dip"
+                    android:layout_height="200dip"
+                    android:layout_marginLeft="162dp"
+                    android:layout_marginTop="125dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:nextFocusDown="@id/main_search"
+                    android:nextFocusLeft="@id/latest_recommend_poster_0"
+                    android:nextFocusUp="@id/latest_recommend_poster_1"
+                    android:scaleType="fitXY" 
+                    android:src="@drawable/main_200x200" />
+
+                <TextView
+                    android:id="@id/latest_recommend_text_2"
+                    style="@style/TextOnMainLayout_new"
+                    android:layout_width="220dip"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="152dp"
+                    android:layout_marginTop="285dp"/>
+            </FrameLayout>
+        </RelativeLayout>
+        <ImageView
+            android:id="@id/white_boder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_border"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+</HorizontalScrollView>

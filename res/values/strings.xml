@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contra</string>
+    <string name="details_play">播放</string>
+    <string name="details_colection">收藏</string>
+    <string name="details_director">导演：</string>
+    <string name="details_actors">主演：</string>
+    <string name="details_des">详情：</string>
+    <string name="details_area">区域：</string>
+    <string name="details_episodes">集数：</string>
+    <string name="details_year">年份：</string>
+</resources>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/launcher52_bg"
+        android:orientation="vertical"
+        android:paddingTop="50dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="80dip" >
+
+            <LinearLayout
+                android:layout_width="122dip"
+                android:layout_height="385dip" >
+
+                <ImageView
+                    android:id="@+id/details_poster_shadow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="256dip"
+                    android:src="@drawable/show" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/details_poster"
+                android:layout_width="260dip"
+                android:layout_height="366dip"
+                android:scaleType="fitStart"
+                android:src="@drawable/poster260x366" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dip"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/details_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="30dp" />
+                    
+                    <LinearLayout  
+						android:layout_width="fill_parent"  
+						android:layout_height="wrap_content"  
+						android:gravity="right" >  
+
+	                    <ImageView
+	                        android:id="@+id/details_sharpness"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:layout_gravity="right" />
+	
+	                    <TextView
+	                        android:id="@+id/details_point"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:layout_gravity="right"
+	                        android:layout_marginLeft="5dip"
+	                        android:ellipsize="end"
+	                        android:maxWidth="320dip"
+	                        android:singleLine="true"
+	                        android:text=""
+	                        android:textColor="@color/detail_point"
+	                        android:textSize="26dp" />
+	                    
+	                 </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/details_director"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/detail_main_text"
+                        android:textSize="24dp" />
+                    
+                    <TextView
+                        android:id="@+id/details_actors"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.0"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/detail_main_text"
+                        android:textSize="24dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/details_episodes"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text=""
+                        android:textColor="@color/detail_main_text"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:id="@+id/details_year"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text=""
+                        android:textColor="@color/detail_main_text"
+                        android:textSize="26dp" />
+
+                    <TextView
+                        android:id="@+id/details_area"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text=""
+                        android:textColor="@color/detail_main_text"
+                        android:textSize="24dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginBottom="5dip"
+                    android:layout_marginTop="5dip"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line760" />
+
+                <TextView
+                    android:id="@+id/details_video_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1.0"
+                    android:ellipsize="end"
+                    android:maxLines="6"
+                    android:text=""
+                    android:textColor="@color/detail_main_text"
+                    android:textSize="24dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top" >
+
+                    <Button
+                        android:id="@+id/details_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dip"
+                        android:background="@drawable/video_details_play_selector"
+                        android:text="@string/details_play"
+                        android:textColor="@color/white"
+                        android:textSize="28dp" />
+
+                    <Button
+                        android:id="@+id/details_colection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/video_details_colection_selector"
+                        android:text="@string/details_colection"
+                        android:textColor="@color/white"
+                        android:textSize="28dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 以下为电视剧选集软键布局，默认情况不显示 -->
+        
+        <GridView
+            android:id="@+id/details_listview"
+            android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:focusableInTouchMode="true"
+		    android:verticalSpacing="5pt"
+		    android:numColumns="1"
+		    android:scrollbars="none"
+			android:smoothScrollbar="true"
+		    android:paddingLeft="180dip"
+		    android:paddingRight="180dip"
+		    android:layout_marginTop="10dip"
+            android:layout_marginBottom="40dip"
+            android:visibility="gone" />
+        
+        <GridView
+            android:id="@+id/details_gridview"
+            android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:focusableInTouchMode="true"
+		    android:horizontalSpacing="10pt"
+		    android:verticalSpacing="10pt"
+		    android:numColumns="10"
+		    android:scrollbars="none"
+			android:smoothScrollbar="true"
+		    android:paddingLeft="110dip"
+		    android:paddingRight="60dip"
+		    android:layout_marginTop="10dip"
+            android:layout_marginBottom="40dip"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</FrameLayout>
