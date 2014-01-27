@@ -1,5 +1,8 @@
 package com.player.boxplayer.activity;
-
+/**
+ * 主界面
+ * @author richardzhou
+ */
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -36,6 +39,7 @@ import com.player.boxplayer.broadcast.WeatherReceiver;
 import com.player.boxplayer.broadcast.WeatherReceiver.WeatherUpdateListener;
 import com.player.boxplayer.tile.Tile;
 import com.player.boxplayer.tile.TileGroup;
+import com.player.boxplayer.util.FileManager;
 import com.player.boxplayer.util.SaxFeedParser;
 import com.player.boxplayer.view.PageViewLayout;
 import com.player.boxplayer.weather.CityWeatherInfoBean;
@@ -46,7 +50,10 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 	private ViewPager centerPager;
 	private RadioGroup titleGroup;
 	private Button search;
-
+	
+	/**
+	 * 此集合是添加到每个ViewPage中的视图
+	 */
 	private ArrayList<View> pages = new ArrayList<View>();
 	private TextView systemTime;
 	private TextView weatherCity;
@@ -60,7 +67,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 	private WeatherReceiver weatherReceiver;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_playerbox);
 		initViews();
@@ -69,8 +76,11 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		sendBroadcast(new Intent(WeatherReceiver.RESPONSE_WEATHER));
 	}
 	
+	/**
+	 * 加载解析后的xml文件。
+	 */
 	private void loadConfigs() {
-		File configFile = new File(getExternalFilesDir(null), "contra.xml");
+		File configFile = new File(getExternalFilesDir(null), FileManager.FILENAME);
 		if (configFile != null) {
 			try {
 				FileInputStream stream = new FileInputStream(configFile);
@@ -110,6 +120,9 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		}
 	}
 
+	/**
+	 * 初始化标题UI，ViewPage初始化,首页的UI的初始化
+	 */
 	private void initViews() {
 		titleGroup = (RadioGroup) findViewById(R.id.title_group);
 		buttonID[0] = R.id.title_menu0;
@@ -147,6 +160,12 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		loadConfigs();
 	}
 
+	/**
+	 * 初始化每个RadioButton下的视图UI
+	 * @param nView 坐标
+	 * @param strTitle 每个RadioButton的title标题名
+	 * @param tilGroup TileGroup对象
+	 */
 	private void initView(int nView, String strTitle, TileGroup tilGroup) {
 		if (nView > 7)
 			return;
