@@ -1,5 +1,7 @@
 package com.player.boxplayer.view;
-
+/**
+ * 每个ViewPage下面的布局。
+ */
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,7 +78,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		refImageView[2] = (ImageView) findViewById(R.id.hot_reflected_img_2);
 		refImageView[3] = (ImageView) findViewById(R.id.hot_reflected_img_3);
 		refImageView[4] = (ImageView) findViewById(R.id.hot_reflected_img_4);
-		refImageView[5] = (ImageView) findViewById(R.id.hot_reflected_img_5);
+		refImageView[5] = (ImageView) findViewById(R.id.hot_reflected_img_5); 
 
 		fls[0] = (FrameLayout) findViewById(R.id.latest_recommend_fl_0);
 		fls[1] = (FrameLayout) findViewById(R.id.latest_recommend_fl_1);
@@ -325,6 +327,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		}
 	}
 
+	/**
+	 * 根据传入的单个网格图片的总数返回相应的布局文件。
+	 * @param nCount 传入的用于区分布局文件的字段。
+	 * @return 相应的布局文件
+	 */
 	private int GetPageViewID(int nCount) {
 		int nViewId = R.layout.page_view_10;
 		switch (nCount) {
@@ -362,6 +369,10 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		return nViewId;
 	}
 
+	/**
+	 * 设置每个网格的图标的坐标。
+	 * @param nCount 每个图标的标识。
+	 */
 	private void RelayoutPage(int nCount) {
 		switch (nCount) {
 		case 1:
@@ -398,6 +409,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		}
 	}
 
+	/**
+	 * 设置每个网格的图片
+	 * @param nIndex 坐标值
+	 * @param nCount 网格图标总数。
+	 */
 	private void ReflectedImage(int nIndex, int nCount) {
 		switch (nCount) {
 		case 2:
@@ -405,7 +421,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refImageView[refIndex].setImageBitmap(ImageReflect
 						.createCutReflectedImage(
 								ImageReflect.convertViewToBitmap(fls[nIndex]),
-								0));
+								0)); 
 				refIndex++;
 			}
 			break;
@@ -460,7 +476,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		}
 	}
 
-	private void showOnFocusAnimation(final int position) {
+	/**
+	 * 显示每个图片的移动动画
+	 * @param position 传入的网格图片的坐标。
+	 */
+	private void showOnFocusAnimation(final int position) { 
 		fls[position].bringToFront();
 		animEffect.setAttributs(1.0f, 1.10f, 1.0f, 1.10f, 100);
 		Animation anim1 = animEffect.createAnimation();

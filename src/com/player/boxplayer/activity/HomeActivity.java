@@ -23,6 +23,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -77,13 +78,13 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 	}
 	
 	/**
-	 * 加载解析后的xml文件。
+	 * 加载配置xml文件。
 	 */
 	private void loadConfigs() {
 		File configFile = new File(getExternalFilesDir(null), FileManager.FILENAME);
 		if (configFile != null) {
 			try {
-				FileInputStream stream = new FileInputStream(configFile);
+				FileInputStream stream = new FileInputStream(configFile); 
 				final SaxFeedParser parser = new SaxFeedParser(stream);
 				final Context ctx = this;
 				List<TileGroup> list = parser.parse();
@@ -94,7 +95,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 						try {
 							Tile searchTile = parser.getSearchTile();
 							Intent intent = new Intent();
-							intent.setClassName(searchTile.getTarget(), searchTile.getActivity());
+							intent.setClassName(searchTile.getTarget(), searchTile.getActivity()); 
 							ctx.startActivity(intent);
 						} catch (Exception e) {
 							
@@ -172,6 +173,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 
 		RadioButton button = (RadioButton) findViewById(buttonID[nView]);
 		button.setText(strTitle);
+		Log.i("Contra", "HomeActivity strTitle====="+strTitle);
 
 		hotView[nView] = new PageViewLayout(this, tilGroup,
 				getExternalFilesDir(null).toString());
@@ -181,6 +183,9 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		pages.add(hotView[nView]);
 	}
 
+	/**
+	 * 调用更新方法初始化数据
+	 */
 	public void initData() {
 		for (int i = 0; i < nHotViewCount; i++) {
 			hotView[i].updateData();

@@ -1,5 +1,7 @@
 package com.player.boxplayer.effect;
-
+/**
+ * 图片处理类
+ */
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -13,8 +15,13 @@ import android.view.View;
 import android.view.View.MeasureSpec;
 
 public class ImageReflect {
-	private static int reflectImageHeight = 100;
+	private static int reflectImageHeight = 100;//图片的高度
 
+	/**
+	 * 将View视图装换为图片
+	 * @param view 
+	 * @return 
+	 */
 	public static Bitmap convertViewToBitmap(View view) {
 		view.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
 				MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
@@ -59,6 +66,12 @@ public class ImageReflect {
 
 	}
 
+	/**
+	 * 创建一个处理好的图片，包括边框渐变色以及图片交互的一些效果。
+	 * @param bitmap 
+	 * @param cutHeight 
+	 * @return
+	 */
 	public static Bitmap createCutReflectedImage(Bitmap bitmap, int cutHeight) {
 
 		int width = bitmap.getWidth();
