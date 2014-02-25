@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/launcher52_bg"
+        android:background="@drawable/background_movie"
         android:orientation="vertical"
         android:paddingTop="50dip" >
 
@@ -30,8 +30,8 @@
             <ImageView
                 android:id="@+id/details_poster"
                 android:layout_width="260dip"
-                android:layout_height="366dip"
-                android:scaleType="fitStart"
+                android:layout_height="386dip"
+                android:scaleType="fitEnd"
                 android:src="@drawable/poster260x366" />
 
             <LinearLayout
@@ -42,7 +42,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/details_name"
@@ -52,32 +53,37 @@
                         android:text=""
                         android:textColor="@color/white"
                         android:textSize="30dp" />
-                    
-                    <LinearLayout  
-						android:layout_width="fill_parent"  
-						android:layout_height="wrap_content"  
-						android:gravity="right" >  
 
-	                    <ImageView
-	                        android:id="@+id/details_sharpness"
-	                        android:layout_width="wrap_content"
-	                        android:layout_height="wrap_content"
-	                        android:layout_gravity="right" />
-	
-	                    <TextView
-	                        android:id="@+id/details_point"
-	                        android:layout_width="wrap_content"
-	                        android:layout_height="wrap_content"
-	                        android:layout_gravity="right"
-	                        android:layout_marginLeft="5dip"
-	                        android:ellipsize="end"
-	                        android:maxWidth="320dip"
-	                        android:singleLine="true"
-	                        android:text=""
-	                        android:textColor="@color/detail_point"
-	                        android:textSize="26dp" />
-	                    
-	                 </LinearLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/star_line" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" >
+
+                        <ImageView
+                            android:id="@+id/details_sharpness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right" />
+
+                        <TextView
+                            android:id="@+id/details_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginLeft="5dip"
+                            android:ellipsize="end"
+                            android:maxWidth="320dip"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textColor="@color/detail_point"
+                            android:textSize="26dp" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -93,7 +99,7 @@
                         android:text=""
                         android:textColor="@color/detail_main_text"
                         android:textSize="24dp" />
-                    
+
                     <TextView
                         android:id="@+id/details_actors"
                         android:layout_width="0dip"
@@ -104,7 +110,6 @@
                         android:text=""
                         android:textColor="@color/detail_main_text"
                         android:textSize="24dp" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -145,15 +150,15 @@
                     android:layout_marginBottom="5dip"
                     android:layout_marginTop="5dip"
                     android:scaleType="fitXY"
-                    android:src="@drawable/line760" />
-
+                    android:src="@drawable/movie_line_down" />
+<!--  -->
                 <TextView
                     android:id="@+id/details_video_introduce"
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
                     android:layout_weight="1.0"
                     android:ellipsize="end"
-                    android:maxLines="6"
+                    android:maxLines="4"
                     android:text=""
                     android:textColor="@color/detail_main_text"
                     android:textSize="24dp" />
@@ -161,64 +166,60 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="top" >
-
-                    <Button
+                    android:orientation="horizontal"
+                     >
+               	<Button
                         android:id="@+id/details_play"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="15dip"
                         android:background="@drawable/video_details_play_selector"
-                        android:text="@string/details_play"
-                        android:textColor="@color/white"
-                        android:textSize="28dp" />
+                        />
 
-                    <Button
+            		<Button
                         android:id="@+id/details_colection"
+                        android:layout_marginLeft="50dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/video_details_colection_selector"
-                        android:text="@string/details_colection"
-                        android:textColor="@color/white"
-                        android:textSize="28dp" />
+                         />
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
 
         <!-- 以下为电视剧选集软键布局，默认情况不显示 -->
-        
+<!-- 电影 -->
         <GridView
             android:id="@+id/details_listview"
             android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:focusableInTouchMode="true"
-		    android:verticalSpacing="5pt"
-		    android:numColumns="1"
-		    android:scrollbars="none"
-			android:smoothScrollbar="true"
-		    android:paddingLeft="180dip"
-		    android:paddingRight="180dip"
-		    android:layout_marginTop="10dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
             android:layout_marginBottom="40dip"
+            android:layout_marginTop="10dip"
+            android:focusableInTouchMode="true"
+            android:numColumns="1"
+            android:paddingLeft="180dip"
+            android:paddingRight="180dip"
+            android:scrollbars="none"
+            android:smoothScrollbar="true"
+            android:verticalSpacing="5pt"
             android:visibility="gone" />
-        
+<!-- 电视剧 -->
         <GridView
             android:id="@+id/details_gridview"
             android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:focusableInTouchMode="true"
-		    android:horizontalSpacing="10pt"
-		    android:verticalSpacing="10pt"
-		    android:numColumns="10"
-		    android:scrollbars="none"
-			android:smoothScrollbar="true"
-		    android:paddingLeft="110dip"
-		    android:paddingRight="60dip"
-		    android:layout_marginTop="10dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="320dp"
             android:layout_marginBottom="40dip"
+            android:layout_marginTop="50dip"
+            android:focusableInTouchMode="true"
+            android:horizontalSpacing="10pt"
+            android:numColumns="10"
+            android:paddingLeft="110dip"
+            android:paddingRight="60dip"
+            android:scrollbars="none"
+            android:smoothScrollbar="true"
+            android:verticalSpacing="10pt"
             android:visibility="gone" />
-
     </LinearLayout>
 
 </FrameLayout>
