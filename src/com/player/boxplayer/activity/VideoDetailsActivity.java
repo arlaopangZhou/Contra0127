@@ -72,7 +72,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 	private VideoDetailInfo media;
 	private String videoInfoFilePath;
 
-	ArrayList<VideoSeriesListItem> videoPlayList = null; // ²¥·ÅÁĞ±í
+	ArrayList<VideoSeriesListItem> videoPlayList = null; // ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
 
 	private final static int MSG_INIT = 11;
 	private final static int MSG_ERROR = 12;
@@ -100,7 +100,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 	 
 	private void showDetailInfo() {
 		/**
-		 * ´´½¨ Ô´µÄ ²¼¾Ö ´´½¨ ÍÆ¼ö²¼¾Ö ´´½¨ 3DÍ¼ ¶¯»­ ³õÊ¼»¯ Ìî³ä½çÃætext
+		 * ï¿½ï¿½ï¿½ï¿½ Ô´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3DÍ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ê¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½text
 		 */
 
 		if (media == null) {
@@ -109,7 +109,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 
 		colection
 				.setBackgroundResource(R.drawable.video_details_colection_selector);
-		colection.setText(getResources().getString(R.string.details_colection));
+//		colection.setText(getResources().getString(R.string.details_colection));
 
 		updateView();
 
@@ -127,7 +127,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 		year.setText(getResources().getString(R.string.details_year)
 				+ media.year);
 
-		// »ñÈ¡²¥·ÅÁĞ±í
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
 		videoPlayList = media.getSeriesItemList(0);
 		setSharpNessLog(media.getRatesList(0));
 		progressDismiss();
@@ -146,7 +146,6 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 				layoutGridView.setAdapter(mGridAdapter);
 				layoutGridView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 				layoutGridView.setSelector(android.R.color.transparent);
-				
 			}
 			else if(media.getItemListType(0) == 1) {
 				listVideoDetail = new ArrayList<String>();
@@ -164,11 +163,12 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 
 	private void updateView() {
 		create3DPost(poster, media.pic);
-		play.setText(getResources().getString(R.string.details_play));
+//		play.setText(getResources().getString(R.string.details_play));
 		play.setVisibility(View.VISIBLE);
 		colection.setVisibility(View.VISIBLE);
 	}
 	
+	//æ­¤å¤„åˆ¤æ–­ç”µè§†å‰§çš„è§†å›¾æ˜¯å¦æ˜¾ç¤º
 	private void createListViewLayout() {
 		if (layoutListView.getVisibility() != View.VISIBLE) {
 			layoutListView.setVisibility(View.VISIBLE);
@@ -213,7 +213,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.video_details);
-		Process.setThreadPriority(Process.myTid(), -3);// UIÏß³Ì-4£¬±ÈUIµÍÒ»¼¶
+		Process.setThreadPriority(Process.myTid(), -3);// UIï¿½ß³ï¿½-4ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½Ò»ï¿½ï¿½
 
 		initView();
 		initData();
@@ -254,39 +254,39 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 	}
 
 	private void initView() {
-		// ²àÒõÓ°
+		// ï¿½ï¿½ï¿½ï¿½Ó°
 		shadow = (ImageView) findViewById(R.id.details_poster_shadow);
 		shadow.setVisibility(View.GONE);
-		// º£±¨
+		// ï¿½ï¿½ï¿½ï¿½
 		poster = (ImageView) findViewById(R.id.details_poster);
 		poster.setImageBitmap(BitmapFactory.decodeResource(getResources(),
 				R.drawable.poster260x366));
 		// poster.setImageBitmap(Reflect3DImage.skewImage(BitmapFactory
 		// .decodeResource(getResources(), R.drawable.hao260x366), 260,
 		// 366, 50));
-		// ÇåÎú¶È
+		// ï¿½ï¿½ï¿½ï¿½ï¿½
 		sharpness = (ImageView) findViewById(R.id.details_sharpness);
 
-		// Ó°ÊÓÃû³Æ
+		// Ó°ï¿½ï¿½ï¿½ï¿½ï¿½
 		videoName = (TextView) findViewById(R.id.details_name);
-		// ÆÀ·Ö
+		// ï¿½ï¿½ï¿½ï¿½
 		point = (TextView) findViewById(R.id.details_point);
-		// µ¼Ñİ
+		// ï¿½ï¿½ï¿½ï¿½
 		editors = (TextView) findViewById(R.id.details_director);
-		// ËùÊôµØÇø
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		area = (TextView) findViewById(R.id.details_area);
-		// ÑİÔ±
+		// ï¿½ï¿½Ô±
 		actors = (TextView) findViewById(R.id.details_actors);
-		// ¼¯Êı
+		// ï¿½ï¿½ï¿½ï¿½
 		episodes = (TextView) findViewById(R.id.details_episodes);
-		// Äê·İ
+		// ï¿½ï¿½ï¿½
 		year = (TextView) findViewById(R.id.details_year);
-		// ½éÉÜ
+		// ï¿½ï¿½ï¿½ï¿½
 		introduce = (TextView) findViewById(R.id.details_video_introduce);
-		// ²¥·Å
+		// ï¿½ï¿½ï¿½ï¿½
 		play = (Button) findViewById(R.id.details_play);
 		play.setVisibility(View.GONE);
-		// ÊÕ²Ø
+		// ï¿½Õ²ï¿½
 		colection = (Button) findViewById(R.id.details_colection);
 		colection.setVisibility(View.GONE);
 		
@@ -325,7 +325,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 	}
 
 	private void initListener() {
-		/* ²¥·Å°´¼üµÄ ¼àÌı Ìø×ª */
+		/* ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½×ª */
 		play.setOnClickListener(new android.view.View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -341,7 +341,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 		});
 		play.setOnKeyListener(this);
 
-		/* ÊÕ²Ø °´¼ü ¼àÌı */
+		/* ï¿½Õ²ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 		colection.setOnClickListener(new android.view.View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -438,7 +438,7 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 	}
 
 	/**
-	 * ÇåÎú¶È±ê¼Ç
+	 * ï¿½ï¿½ï¿½ï¿½È±ï¿½ï¿½
 	 * 
 	 * @param sharp
 	 */
@@ -446,16 +446,16 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 		if (sharp == null || sharp.equals("")) {
 			return;
 		}
-		else if (sharp.contains("È«¸ßÇå")) {
+		else if (sharp.contains("È«ï¿½ï¿½ï¿½ï¿½")) {
 			sharpness.setImageResource(R.drawable.video_details_fhd);
 		}
-		else if (sharp.contains("³¬Çå") || sharp.contains("SD")) {
+		else if (sharp.contains("ï¿½ï¿½ï¿½ï¿½") || sharp.contains("SD")) {
 			sharpness.setImageResource(R.drawable.video_details_superhd);
 		}
-		else if (sharp.contains("¸ßÇå") || sharp.contains("HD")) {
+		else if (sharp.contains("ï¿½ï¿½ï¿½ï¿½") || sharp.contains("HD")) {
 			sharpness.setImageResource(R.drawable.video_details_hd);
 		}
-		else if (sharp.contains("DVD") || sharp.contains("Á÷³©") || sharp.contains("±êÇå")) {
+		else if (sharp.contains("DVD") || sharp.contains("ï¿½ï¿½ï¿½ï¿½") || sharp.contains("ï¿½ï¿½ï¿½ï¿½")) {
 			sharpness.setImageResource(R.drawable.video_details_dvd);
 		}
 		else {

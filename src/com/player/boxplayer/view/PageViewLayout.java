@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -124,11 +125,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		backGrounds[8] = (ImageView) findViewById(R.id.latest_recommend_bg_8);
 		backGrounds[9] = (ImageView) findViewById(R.id.latest_recommend_bg_9);
 
-		effPos[0] = new EffectPos(0, 0, 292, 445, 50f, 0f);
+		effPos[0] = new EffectPos(0, 0, 292, 445, 50f, 0f);//控制边框宽高
 		effPos[1] = new EffectPos(0, 0, 445, 220, 391f, -103f);
 		effPos[2] = new EffectPos(0, 0, 220, 220, 289f, 103f);
 		effPos[3] = new EffectPos(0, 0, 220, 220, 494f, 103f);
-		effPos[4] = new EffectPos(0, 0, 300, 445, 734f, 0f);
+		effPos[4] = new EffectPos(0, 0, 292, 445, 734f, 0f);//9张图的中间竖图
 		effPos[5] = new EffectPos(0, 0, 220, 220, 975f, -103f);
 		effPos[6] = new EffectPos(0, 0, 220, 220, 1181f, -103f);
 		effPos[7] = new EffectPos(0, 0, 445, 220, 1078f, 103f);
@@ -165,9 +166,9 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		}
 
 		whiteBorder = (ImageView) findViewById(R.id.white_boder);
-		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(292, 445);
-		lp.leftMargin = 100;
-		lp.topMargin = 0;
+		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(292, 445);//此处的尺寸要和首次进入界面的图片的尺寸一样。
+		lp.leftMargin = 100;//设置边框距离左边的距离尺寸
+		lp.topMargin = 0;//设置距离顶部的距离尺寸
 		whiteBorder.setLayoutParams(lp);
 	}
 
@@ -201,6 +202,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 
 	@Override
 	public void onFocusChange(View v, boolean hasFocus) {
+		
 		switch (v.getId()) {
 		case R.id.latest_recommend_poster_0:
 			if (hasFocus) {
@@ -312,9 +314,16 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		}
 	}
 
+	/**
+	 * 焦点选中时的方格的动画以及图片框显示动画
+	 * @param toWidth
+	 * @param toHeight
+	 * @param toX
+	 * @param toY
+	 */
 	private void flyWhiteBorder(int toWidth, int toHeight, float toX, float toY) {
 		if (whiteBorder != null) {
-			whiteBorder.setVisibility(View.VISIBLE);
+//			whiteBorder.setVisibility(View.VISIBLE);
 			int width = whiteBorder.getWidth();
 			int height = whiteBorder.getHeight();
 			ViewPropertyAnimator animator = whiteBorder.animate();
@@ -324,6 +333,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			animator.x(toX);
 			animator.y(toY);
 			animator.start();
+			
 		}
 	}
 
@@ -389,8 +399,10 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		case 5:
 			break;
 		case 6:
-			effPos[4].SetParams(0, 0, 220, 220, 699f, -103f);
+			effPos[4].SetParams(0, 0, 220, 220, 699f, -101f);
+//			effPos[4].SetParams(0, 0, 220, 220, 699f, -103f);
 			effPos[5].SetParams(0, 0, 220, 220, 699f, 103f);
+			
 			break;
 		case 7:
 			effPos[6].SetParams(0, 0, 220, 220, 975f, 103f);
@@ -402,7 +414,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		case 9:
 			effPos[6].xPos = 1597;
 			effPos[7].xPos = 1597;
-			effPos[8].SetParams(1780, 0, 300, 445, 1423f, 0f);
+			effPos[8].SetParams(1780, 0, 300, 445, 1423f, 0f);//9张图的最后一张竖图。
 			break;
 		default:
 			break;
@@ -410,9 +422,9 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 	}
 
 	/**
-	 * 设置每个网格的图片
-	 * @param nIndex 坐标值
-	 * @param nCount 网格图标总数。
+	 * 设置每个页面的图片倒影效果
+	 * @param nIndex 图片数量
+	 * @param nCount 每个页面的图片数量。
 	 */
 	private void ReflectedImage(int nIndex, int nCount) {
 		switch (nCount) {
@@ -488,7 +500,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 
 			@Override
 			public void onAnimationStart(Animation animation) {
-
+				whiteBorder.setVisibility(View.VISIBLE);
 			}
 
 			@Override
@@ -504,6 +516,8 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 						150, 0));
 				tvs[position].setVisibility(View.VISIBLE);
 				backGrounds[position].setVisibility(View.VISIBLE);
+				
+				whiteBorder.setVisibility(View.INVISIBLE);
 			}
 		});
 		posts[position].startAnimation(anim1);
@@ -562,5 +576,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			fToX = fx;
 			fToY = fy;
 		}
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		return super.onKeyDown(keyCode, event);
 	}
 }

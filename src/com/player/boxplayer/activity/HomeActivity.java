@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -26,10 +28,13 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -141,17 +146,17 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		
 		search = (Button) findViewById(R.id.main_search);
 		
-
+		
 		systemTime = (TextView) findViewById(R.id.top_system_time);
-		systemTime.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(
-				new Date()));
+		
+		systemTime.setText(getSystemTime());
 		
 		weatherCity = (TextView) findViewById(R.id.top_weather_city);
 		//weatherLog2 = (ImageView) findViewById(R.id.top_weather_log2);
 		weatherInfo = (TextView) findViewById(R.id.top_weather_info);
 		
 		topNetType = (ImageView) findViewById(R.id.top_net_type);
-		topNetType.setImageResource(R.drawable.et_connect_normal);
+		topNetType.setImageResource(R.drawable.wifi_n);//wifi图标
 
 		if (!Environment.getExternalStorageState().startsWith(
 				Environment.MEDIA_MOUNTED)) {
@@ -161,6 +166,17 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		loadConfigs();
 	}
 
+	/**
+	 * 功能：获取系统时间，格式为12:00类型.
+	 * @return 当前系统时间的字符串。
+	 */
+	public String getSystemTime(){
+		SimpleDateFormat sim = new SimpleDateFormat("HH:mm");
+		Date date = new Date(System.currentTimeMillis());
+		String str = sim.format(date);
+		return str;
+	}
+	
 	/**
 	 * 初始化每个RadioButton下的视图UI
 	 * @param nView 坐标
@@ -235,8 +251,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		public void onReceive(Context context, Intent intent) {
 			String action = intent.getAction();
 			if (action.equals("android.intent.action.TIME_TICK")) {
-				systemTime.setText(DateFormat.getTimeInstance(DateFormat.SHORT)
-						.format(new Date()));
+				systemTime.setText(getSystemTime());
 			}
 		}
 	}
@@ -261,7 +276,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 						.getActiveNetworkInfo();
 				if (localNetworkInfo != null) {
 					if (localNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-						topNetType.setImageResource(R.drawable.wifi0401);
+						topNetType.setImageResource(R.drawable.wifi_n);
 					}
 					
 					sendBroadcast(new Intent(WeatherReceiver.RESPONSE_WEATHER));
@@ -273,16 +288,25 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		}
 	}
 
+	
 	public void initListener() {
+		final Animation animationBig = AnimationUtils.loadAnimation(HomeActivity.this, R.anim.radiobutton_anim_big);
+		final Animation animationSmall = AnimationUtils.loadAnimation(HomeActivity.this, R.anim.radiobutton_anim_small);
 		OnFocusChangeListener focusListener = new OnFocusChangeListener() {
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
+				int position = (Integer) v.getTag();
 				if (hasFocus) {
-					int position = (Integer) v.getTag();
 					centerPager.setCurrentItem(position, true);
+					titleGroup.getChildAt(position).startAnimation(animationBig);
+					animationBig.setFillAfter(true);
+				}
+				else{
+					titleGroup.getChildAt(position).startAnimation(animationSmall);
 				}
 			}
 		};
+		
 		for (int i = 0; i < titleGroup.getChildCount(); i++) {
 			View view = titleGroup.getChildAt(i);
 			view.setTag(i);
@@ -294,8 +318,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 			public void onPageSelected(int arg0) {
 				if (arg0 < titleGroup.getChildCount()) {
 					((RadioButton) titleGroup.getChildAt(arg0))
-							.setChecked(true);
-
+					.setChecked(true);
 				}
 			}
 
