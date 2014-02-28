@@ -133,8 +133,8 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		effPos[5] = new EffectPos(0, 0, 220, 220, 975f, -103f);
 		effPos[6] = new EffectPos(0, 0, 220, 220, 1181f, -103f);
 		effPos[7] = new EffectPos(0, 0, 445, 220, 1078f, 103f);
-		effPos[8] = new EffectPos(0, 0, 220, 220, 1385f, -103f);
-		effPos[9] = new EffectPos(0, 0, 220, 220, 1385f, 103f);
+		effPos[8] = new EffectPos(0, 0, 220, 220, 1423f, -103f);
+		effPos[9] = new EffectPos(0, 0, 220, 220, 1423f, 103f);
 
 		int nTileCount = mTitleGroup.getTileCount();
 		if (nTileCount > 10)
@@ -154,6 +154,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				String strImgName = mTitleGroup.getTileAt(i).getImageUrl();
 				if (strImgName.length() > 0) {
 					File file = new File(mImgBaseFolder + "/" + strImgName);
+					Log.i("Contra", "PageViewLayout ====="+mImgBaseFolder + "/" + strImgName);
 					// Log.e("xml test", "set image uri " + file.toString());
 					if (file != null) {
 						posts[i].setImageURI(Uri.fromFile(file));
@@ -400,7 +401,6 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			break;
 		case 6:
 			effPos[4].SetParams(0, 0, 220, 220, 699f, -101f);
-//			effPos[4].SetParams(0, 0, 220, 220, 699f, -103f);
 			effPos[5].SetParams(0, 0, 220, 220, 699f, 103f);
 			
 			break;
@@ -415,6 +415,12 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			effPos[6].xPos = 1597;
 			effPos[7].xPos = 1597;
 			effPos[8].SetParams(1780, 0, 300, 445, 1423f, 0f);//9张图的最后一张竖图。
+			break;
+		case 10:
+			effPos[6].xPos = 1597;
+			effPos[7].xPos = 1597;
+			effPos[8].SetParams(1780, 0, 220, 220, 1385f, -103f);//9张图的最后一张竖图。
+			effPos[9].SetParams(1780, 0, 220, 220, 1385f, 103f);
 			break;
 		default:
 			break;

@@ -7,9 +7,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import android.app.Activity;
@@ -62,6 +65,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 	 */
 	private ArrayList<View> pages = new ArrayList<View>();
 	private TextView systemTime;
+	private TextView systemTimeArea;
 	private TextView weatherCity;
 	private ImageView weatherLog2;
 	private ImageView topNetType;
@@ -148,8 +152,14 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		
 		
 		systemTime = (TextView) findViewById(R.id.top_system_time);
-		
+		systemTimeArea = (TextView) findViewById(R.id.top_system_time_area);
 		systemTime.setText(getSystemTime());
+		try {
+			systemTimeArea.setText(getSystemTimeArea());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		weatherCity = (TextView) findViewById(R.id.top_weather_city);
 		//weatherLog2 = (ImageView) findViewById(R.id.top_weather_log2);
@@ -167,14 +177,28 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 	}
 
 	/**
-	 * 功能：获取系统时间，格式为12:00类型.
+	 * 功能：获取系统时间，格式为24小时类型.
 	 * @return 当前系统时间的字符串。
 	 */
 	public String getSystemTime(){
-		SimpleDateFormat sim = new SimpleDateFormat("HH:mm");
+		SimpleDateFormat sim = new SimpleDateFormat("hh:mm");
 		Date date = new Date(System.currentTimeMillis());
 		String str = sim.format(date);
 		return str;
+	}
+	
+	public String getSystemTimeArea() throws ParseException{
+		Calendar ca = Calendar.getInstance();
+		Date date = new Date(System.currentTimeMillis());
+		DateFormat sim = new SimpleDateFormat("hh:mm");
+		Date dateMiddle = sim.parse("12:00");
+		
+		if (date.getTime() < dateMiddle.getTime()) {
+			
+			return "AM";
+		} else {
+			return "PM";
+		}
 	}
 	
 	/**
@@ -192,7 +216,8 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		Log.i("Contra", "HomeActivity strTitle====="+strTitle);
 
 		hotView[nView] = new PageViewLayout(this, tilGroup,
-				getExternalFilesDir(null).toString());
+				getExternalFilesDir(null).toString()); 
+		Log.i("Contra", "getExternalFilesDir(null).toString()====="+getExternalFilesDir(null).toString());
 		hotView[nView].requestFocus();
 		hotView[nView].initView();
 

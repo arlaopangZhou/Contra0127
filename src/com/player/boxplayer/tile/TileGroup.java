@@ -1,6 +1,6 @@
 package com.player.boxplayer.tile;
 /**
- * 
+ * 单个页面的一些属性
  */
 import java.util.ArrayList;
 
@@ -23,6 +23,10 @@ public class TileGroup {
 		return tiles.get(i);
 	}
 	
+	/**
+	 * 返回每个页面的图片总数的方法
+	 * @return 每个页面的图片总数
+	 */
 	public int getTileCount() {
 		return tiles.size();
 	}

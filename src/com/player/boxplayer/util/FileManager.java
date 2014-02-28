@@ -14,6 +14,6 @@ public interface FileManager {
 	/**
 	 * 保存载SD卡上的文件名
 	 */
-	public static String FILENAME = "contra.xml";
+	public static String FILENAME = "contra1.xml";
 
 }
