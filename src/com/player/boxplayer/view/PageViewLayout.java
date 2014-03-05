@@ -157,7 +157,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 					Log.i("Contra", "PageViewLayout ====="+mImgBaseFolder + "/" + strImgName);
 					// Log.e("xml test", "set image uri " + file.toString());
 					if (file != null) {
-						posts[i].setImageURI(Uri.fromFile(file));
+//						posts[i].setImageURI(Uri.fromFile(file));
 					}
 				}
 			} catch (Exception e) {

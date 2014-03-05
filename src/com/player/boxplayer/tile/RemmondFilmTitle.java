@@ -10,7 +10,6 @@ public class RemmondFilmTitle {
 	private String activity;
 	private String backgroupImageUrl;
 	
-	
 	public void setTitle(String title) {
 		this.title = title;
 	}

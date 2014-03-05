@@ -1,5 +1,4 @@
-package com.player.boxplayer.activity;
-
+package com.player.boxplayer.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +20,19 @@ public class RecommendFilmHandler extends DefaultHandler {
 	private final String TARGET = "target";
 	private final String ACTIVITY = "activity";
 	private RemmondFilmTitle reTile;
-
+	private String backGrop;
+	
+	
 	private List<RemmondFilmTitle> reTileList;
+
+	public String getBackGroup(){
+		return backGrop;
+	}
 	
 	public List<RemmondFilmTitle> getRemmondFilmTitle() {
 		return reTileList;
 	}
-	
+
 	@Override
 	public void startDocument() throws SAXException {
 		// TODO Auto-generated method stub
@@ -48,19 +53,20 @@ public class RecommendFilmHandler extends DefaultHandler {
 			reTile.setTarget(attributes.getValue(TARGET));
 			reTile.setActivity(attributes.getValue(ACTIVITY));
 			reTileList.add(reTile);
-		} 
-//		else if (localName.equalsIgnoreCase(BACKGROUP)) {
-//			reTile.setBgImageUrl(attributes.getValue(IMG));
-//		}
+		} else if (localName.equalsIgnoreCase(BACKGROUP)) {
+			backGrop = attributes.getValue(IMG);
+//			Log.i("Contra", "BACKGROUP === "+attributes.getValue(IMG));
+			reTile.setBgImageUrl(attributes.getValue(IMG));
+		}
 	}
-	
+
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
 		// TODO Auto-generated method stub
 		super.endElement(uri, localName, qName);
-//		if(localName.equalsIgnoreCase("BACKGROUP")){
-//			reTileList.add(reTile);
-//		}
+		// if(localName.equalsIgnoreCase("BACKGROUP")){
+		// reTileList.add(reTile);
+		// }
 	}
 }

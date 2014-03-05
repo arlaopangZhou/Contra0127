@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.player.boxplayer.R;
+import com.player.boxplayer.activity.RecommendFilmActivity;
 import com.player.boxplayer.tile.RemmondFilmTitle;
 import com.player.boxplayer.util.ScaleBitmapTool;
 
@@ -23,12 +24,12 @@ public class FilmAdapter extends BaseAdapter {
 
 	private Context context;
 	private List<RemmondFilmTitle> reTileList;
-	
-	public FilmAdapter(Context context) {
+	private int selectItem;
+	public FilmAdapter(Context context,List<RemmondFilmTitle> reTileList) {
 		super();
 		// TODO Auto-generated constructor stub
-		reTileList = new ArrayList<RemmondFilmTitle>();
 		this.context = context;
+		this.reTileList = reTileList;
 	}
 
 	@Override
@@ -49,11 +50,19 @@ public class FilmAdapter extends BaseAdapter {
 		return position;
 	}
 
-	public void addObject (RemmondFilmTitle object){
-		reTileList.add(object);
-		notifyDataSetChanged();
+	/**
+	 * 功能：设置焦点的选中的坐标。用于判断当前焦点获取的图片是否和getView里的Position一致。
+	 * 该方法是用于对焦点选中的图片做一些处理。
+	 * @param selectItem 获取焦点的视图坐标。
+	 */
+	public void setSelect(int selectItem){
+		if (this.selectItem != selectItem) {
+			this.selectItem = selectItem;
+			notifyDataSetChanged();
+		}
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stubs
@@ -61,17 +70,25 @@ public class FilmAdapter extends BaseAdapter {
 		Log.i("Contra", " imagePath =="+imagePath);
 		String filmName = reTileList.get(position).getTitle();
 		LayoutInflater inflater = LayoutInflater.from(context);
-		View layout = inflater.inflate(R.layout.recemmend_item, null);
-		Holder hold = new Holder();
-		hold.img = (ImageView) layout.findViewById(R.id.image_film);
-		hold.txt = (TextView) layout.findViewById(R.id.film_name);
+		Holder hold;
+		if (convertView == null) {
+			convertView = inflater.inflate(R.layout.recemmend_item, null);
+			hold = new Holder();
+			hold.img = (ImageView) convertView.findViewById(R.id.image_film);
+//			hold.txt = (TextView) convertView.findViewById(R.id.film_name);
+			convertView.setTag(hold);
+		} else {
+			hold = (Holder) convertView.getTag();
+		}
 		hold.img.setImageBitmap(ScaleBitmapTool.getImageView(imagePath));
-		hold.txt.setText(filmName);
-//		hold.img.setOnFocusChangeListener(this);
-//		LinearLayout linearLayout = new LinearLayout(getApplicationContext());
-		layout.setLayoutParams(new LayoutParams(300, 400));
-		((LinearLayout) layout).setGravity(Gravity.CENTER);
-		return layout;
+		
+		if (selectItem == position) {
+			convertView.setBackgroundResource(R.drawable.white_border);
+		} else {
+			convertView.setBackgroundResource(R.drawable.white_border2);
+		}
+		
+		return convertView;
 	}
 
 	class Holder {

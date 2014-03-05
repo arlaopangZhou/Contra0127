@@ -1,10 +1,12 @@
 package com.player.boxplayer.view;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
 
 public class HoriScrollView extends LinearLayout {
@@ -15,7 +17,7 @@ public class HoriScrollView extends LinearLayout {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 		this.context = context;
-		
+//		this.requestChildFocus(child, focused)
 	}
 
 	public void setAdapter (FilmAdapter adapter){
@@ -23,7 +25,8 @@ public class HoriScrollView extends LinearLayout {
 		for (int i = 0; i < adapter.getCount(); i++) {
 			View view = adapter.getView(i, null, null);
 			view.setPadding(20, 0, 20, 0);
-			view.setLayoutParams(new LinearLayout.LayoutParams(300, 400));
+//			view.setLayoutParams(new LinearLayout.LayoutParams(300, 400));
+			
 			view.setOnClickListener(new OnClickListener() {
 				
 				@Override
