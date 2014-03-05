@@ -6,6 +6,7 @@
     android:scrollbars="none" >
 
     <FrameLayout
+        android:layout_marginLeft="370dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
@@ -13,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-50dip"
-            android:layout_marginTop="425dp" >
+            android:layout_marginTop="430dp" >
 
             <ImageView
                 android:id="@id/hot_reflected_img_0"
@@ -41,7 +42,7 @@
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_0"
-                    android:layout_width="264dp"
+                    android:layout_width="400dp"
                     android:layout_height="405dp"
                     android:layout_marginLeft="115dp"
                     android:layout_marginTop="20dp"
@@ -51,7 +52,7 @@
                     android:nextFocusDown="@id/main_search"
                     android:nextFocusUp="@id/latest_recommend"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_268x404" />
+                    android:src="@drawable/cartoon" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_0"

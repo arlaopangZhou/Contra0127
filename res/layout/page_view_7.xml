@@ -6,6 +6,7 @@
     android:scrollbars="none" >
 
     <FrameLayout
+        android:layout_marginLeft="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
@@ -13,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-50dip"
-            android:layout_marginTop="425dp" >
+            android:layout_marginTop="430dp" >
 
             <ImageView
                 android:id="@id/hot_reflected_img_0"
@@ -53,8 +54,8 @@
 
             <FrameLayout
                 android:id="@id/latest_recommend_fl_0"
-                android:layout_width="564dp"
-                android:layout_height="544dp" >
+                android:layout_width="755dp"
+                android:layout_height="400dp" >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_0"
@@ -65,9 +66,9 @@
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_0"
-                    android:layout_width="264dp"
-                    android:layout_height="405dp"
-                    android:layout_marginLeft="115dp"
+                    android:layout_width="405dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="110dp"
                     android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:focusable="true"
@@ -76,7 +77,7 @@
                     android:nextFocusRight="@id/latest_recommend_poster_1"
                     android:nextFocusUp="@id/latest_recommend"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_268x404" />
+                    android:src="@drawable/media_center" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_0"
@@ -91,22 +92,21 @@
                 android:id="@id/latest_recommend_fl_1"
                 android:layout_width="755dp"
                 android:layout_height="400dp"
-                android:layout_marginLeft="184dp"
-                android:layout_marginTop="5dp" >
+                android:layout_marginTop="105dp" >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="13dp"
+                    android:layout_marginTop="15dp"
                     android:src="@drawable/shadow_square" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_1"
                     android:layout_width="405dp"
                     android:layout_height="200dp"
-                    android:layout_marginLeft="200dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="120dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -115,7 +115,7 @@
                     android:nextFocusRight="@id/latest_recommend_poster_4"
                     android:nextFocusUp="@id/latest_recommend"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_404x200" />
+                    android:src="@drawable/tv_play" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_1"
@@ -130,8 +130,8 @@
                 android:id="@id/latest_recommend_fl_2"
                 android:layout_width="587dp"
                 android:layout_height="438dp"
-                android:layout_marginLeft="194dip"
-                android:layout_marginTop="105dip" >
+                android:layout_marginLeft="230dp"
+                 >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_2"
@@ -144,8 +144,8 @@
                     android:id="@id/latest_recommend_poster_2"
                     android:layout_width="200dip"
                     android:layout_height="200dip"
-                    android:layout_marginLeft="190dp"
-                    android:layout_marginTop="120dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -154,7 +154,7 @@
                     android:nextFocusRight="@id/latest_recommend_poster_3"
                     android:nextFocusUp="@id/latest_recommend_poster_1"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_200x200" />
+                    android:src="@drawable/variety" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_2"
@@ -169,8 +169,8 @@
                 android:id="@id/latest_recommend_fl_3"
                 android:layout_width="587dp"
                 android:layout_height="438dp"
-                android:layout_marginLeft="399dip"
-                android:layout_marginTop="105dip" >
+                android:layout_marginLeft="435dip"
+                >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_3"
@@ -183,8 +183,8 @@
                     android:id="@id/latest_recommend_poster_3"
                     android:layout_width="200dip"
                     android:layout_height="200dip"
-                    android:layout_marginLeft="190dp"
-                    android:layout_marginTop="120dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -193,7 +193,7 @@
                     android:nextFocusRight="@id/latest_recommend_poster_4"
                     android:nextFocusUp="@id/latest_recommend_poster_1"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_200x200" />
+                    android:src="@drawable/dlna" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_3"
@@ -206,23 +206,24 @@
 
             <FrameLayout
                 android:id="@id/latest_recommend_fl_4"
-                android:layout_width="624dp"
-                android:layout_height="544dp"
-                android:layout_marginLeft="618dip" >
+                android:layout_width="587dp"
+                android:layout_height="438dp"
+                android:layout_marginTop="105dp"
+                android:layout_marginLeft="230dip" >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="15dp"
                     android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_4"
-                    android:layout_width="272dp"
-                    android:layout_height="405dp"
-                    android:layout_marginLeft="176dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="120dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -231,7 +232,7 @@
                     android:nextFocusRight="@id/latest_recommend_poster_5"
                     android:nextFocusUp="@id/latest_recommend"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_268x404" />
+                    android:src="@drawable/setting" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_4"
@@ -244,23 +245,24 @@
 
             <FrameLayout
                 android:id="@id/latest_recommend_fl_5"
-                android:layout_width="415dp"
-                android:layout_height="377dp"
-                android:layout_marginLeft="881dip" >
+                android:layout_width="587dp"
+                android:layout_height="438dp"
+                android:layout_marginLeft="435dp"
+                android:layout_marginTop="105dp" >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/shadow_transverse" />
+                    android:src="@drawable/shadow_square" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_5"
                     android:layout_width="200dip"
                     android:layout_height="200dip"
-                    android:layout_marginLeft="190dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="120dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -268,7 +270,7 @@
                     android:nextFocusLeft="@id/latest_recommend_poster_4"
                     android:nextFocusUp="@id/latest_recommend"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_200x200" />
+                    android:src="@drawable/miracast" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_5"
@@ -283,8 +285,8 @@
                 android:id="@id/latest_recommend_fl_6"
                 android:layout_width="415dp"
                 android:layout_height="438dp"
-                android:layout_marginLeft="909dip"
-                android:layout_marginTop="100dip" >
+                android:layout_marginLeft="768dip"
+                >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_6"
@@ -295,10 +297,10 @@
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_6"
-                    android:layout_width="200dip"
-                    android:layout_height="200dip"
+                    android:layout_width="264dip"
+                    android:layout_height="405dip"
                     android:layout_marginLeft="162dp"
-                    android:layout_marginTop="125dp"
+                    android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -306,7 +308,7 @@
                     android:nextFocusLeft="@id/latest_recommend_poster_4"
                     android:nextFocusUp="@id/latest_recommend_poster_5"
                     android:scaleType="fitXY" 
-                    android:src="@drawable/main_200x200" />
+                    android:src="@drawable/movie" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_6"

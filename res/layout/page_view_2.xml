@@ -8,6 +8,7 @@
     <FrameLayout
         android:gravity="center" 
     	android:layout_gravity="center"
+    	android:layout_marginLeft="70dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
@@ -15,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-50dip"
-            android:layout_marginTop="425dp" >
+            android:layout_marginTop="430dp" >
 
             <ImageView
                 android:id="@id/hot_reflected_img_0"
@@ -26,7 +27,7 @@
                 android:id="@id/hot_reflected_img_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="270dip" />
+                android:layout_marginLeft="405dip" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -49,7 +50,7 @@
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_0"
-                    android:layout_width="264dp"
+                    android:layout_width="400dp"
                     android:layout_height="405dp"
                     android:layout_marginLeft="115dp"
                     android:layout_marginTop="20dp"
@@ -60,7 +61,7 @@
                     android:nextFocusRight="@id/latest_recommend_poster_1"
                     android:nextFocusUp="@id/latest_recommend"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_268x404" />
+                    android:src="@drawable/movie" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_0"
@@ -75,7 +76,7 @@
                 android:id="@id/latest_recommend_fl_1"
                 android:layout_width="564dp"
                 android:layout_height="544dp"
-				android:layout_marginLeft="270dp">
+				android:layout_marginLeft="405dp">
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_1"
@@ -97,7 +98,7 @@
                     android:nextFocusLeft="@id/latest_recommend_poster_0"
                     android:nextFocusUp="@id/latest_recommend"
                     android:scaleType="fitXY"
-                    android:src="@drawable/main_268x404" />
+                    android:src="@drawable/doucumentary" />
 
                 <TextView
                     android:id="@id/latest_recommend_text_1"
