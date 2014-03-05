@@ -6,7 +6,8 @@
 	<TextView android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:textSize="25sp"
-		android:textColor="@drawable/video_details_item_selector"
+		android:background="@drawable/video_details_item_selector"
+		android:textColor="#FFFFFF"
 		android:id="@+id/ItemText">
 	</TextView>
 </RelativeLayout> 

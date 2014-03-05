@@ -15,9 +15,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="17dp"
             android:textColor="#999999"
             android:textSize="28sp"
+            android:textStyle="normal" />
+        
+        <TextView
+            android:id="@+id/top_system_time_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#999999"
+            android:textSize="16sp"
             android:textStyle="normal" />
 
         <ImageView
@@ -66,7 +76,7 @@
         android:id="@id/title_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dip"
+        android:layout_marginTop="70dip"
         android:orientation="horizontal"
         android:paddingLeft="60dip"
         android:paddingRight="60dip" >
@@ -189,7 +199,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginLeft="100dp"
         android:background="@drawable/main_searcch_sel" />
 

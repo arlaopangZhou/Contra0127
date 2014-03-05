@@ -61,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:src="@drawable/shadow_big_left" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_0"
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
-                    android:src="@drawable/shadow_big_top" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_1"
@@ -138,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/shadow_bottom_center" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_2"
@@ -177,7 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/shadow_bottom_center" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_3"
@@ -215,7 +215,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:src="@drawable/shadow_big_center" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_4"
@@ -253,7 +253,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/shadow_top_center" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_5"
@@ -291,7 +291,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/shadow_top_center" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_6"
@@ -329,7 +329,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/shadow_big_bottom" />
+                    android:src="@drawable/shadow_transverse" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_7"
