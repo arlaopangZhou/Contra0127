@@ -125,7 +125,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		backGrounds[8] = (ImageView) findViewById(R.id.latest_recommend_bg_8);
 		backGrounds[9] = (ImageView) findViewById(R.id.latest_recommend_bg_9);
 
-		effPos[0] = new EffectPos(0, 0, 292, 445, 50f, 0f);//控制边框宽高
+		effPos[0] = new EffectPos(0, 0, 445, 442, 120f, 4f);//控制边框宽高
 		effPos[1] = new EffectPos(0, 0, 445, 220, 391f, -103f);
 		effPos[2] = new EffectPos(0, 0, 220, 220, 289f, 103f);
 		effPos[3] = new EffectPos(0, 0, 220, 220, 494f, 103f);
@@ -389,7 +389,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		case 1:
 			break;
 		case 2:
-			effPos[1].SetParams(0, 0, 292, 445, 322f, 0f);
+			effPos[1].SetParams(0, 0, 292, 445, 458f, 4f);
 			break;
 		case 3:
 			effPos[1].SetParams(0, 0, 220, 220, 291f, -103f);
@@ -522,8 +522,8 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 						150, 0));
 				tvs[position].setVisibility(View.VISIBLE);
 				backGrounds[position].setVisibility(View.VISIBLE);
-				
-				whiteBorder.setVisibility(View.INVISIBLE);
+				whiteBorder.setVisibility(View.VISIBLE);// 测试使用暂时显示
+//				whiteBorder.setVisibility(View.INVISIBLE);
 			}
 		});
 		posts[position].startAnimation(anim1);
