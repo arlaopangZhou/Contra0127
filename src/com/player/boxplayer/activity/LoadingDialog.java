@@ -1,5 +1,7 @@
 package com.player.boxplayer.activity;
 
+import com.player.boxplayer.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +10,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.player.boxplayer.R;
 
 public class LoadingDialog extends Dialog {
 	// private Context context;
