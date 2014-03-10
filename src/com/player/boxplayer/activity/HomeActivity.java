@@ -1,4 +1,5 @@
 package com.player.boxplayer.activity;
+
 /**
  * 主界面
  * @author richardzhou
@@ -14,6 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Logger;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -59,7 +61,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 	private ViewPager centerPager;
 	private RadioGroup titleGroup;
 	private Button search;
-	
+
 	/**
 	 * 此集合是添加到每个ViewPage中的视图
 	 */
@@ -77,7 +79,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 	private WeatherReceiver weatherReceiver;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) { 
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_playerbox);
 		initViews();
@@ -85,29 +87,31 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		registerReceiver();
 		sendBroadcast(new Intent(WeatherReceiver.RESPONSE_WEATHER));
 	}
-	
+
 	/**
 	 * 加载配置xml文件。
 	 */
 	private void loadConfigs() {
-		File configFile = new File(getExternalFilesDir(null), FileManager.FILENAME);
+		File configFile = new File(getExternalFilesDir(null),
+				FileManager.FILENAME);
 		if (configFile != null) {
 			try {
-				FileInputStream stream = new FileInputStream(configFile); 
+				FileInputStream stream = new FileInputStream(configFile);
 				final SaxFeedParser parser = new SaxFeedParser(stream);
 				final Context ctx = this;
 				List<TileGroup> list = parser.parse();
-				
+
 				search.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						try {
 							Tile searchTile = parser.getSearchTile();
 							Intent intent = new Intent();
-							intent.setClassName(searchTile.getTarget(), searchTile.getActivity()); 
+							intent.setClassName(searchTile.getTarget(),
+									searchTile.getActivity());
 							ctx.startActivity(intent);
 						} catch (Exception e) {
-							
+
 						}
 					}
 				});
@@ -117,7 +121,10 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 					TileGroup tg = list.get(i);
 					initView(i, tg.getTitle(), tg);
 				}
-
+				hotView[0].requestFocus();
+				titleGroup.getChildAt(0).requestFocus();
+				RadioButton radio = (RadioButton) titleGroup.getChildAt(0);
+				radio.setChecked(true);
 				nHotViewCount = list.size();
 
 				for (int k = 7; k >= list.size(); k--) {
@@ -143,14 +150,14 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		buttonID[5] = R.id.title_menu5;
 		buttonID[6] = R.id.title_menu6;
 		buttonID[7] = R.id.title_menu7;
-		
+
 		centerPager = (ViewPager) findViewById(R.id.main_layout_pager);
 		centerPager.setAdapter(new AllPagesAdapter(pages));
 		centerPager.setCurrentItem(0);
 		
+
 		search = (Button) findViewById(R.id.main_search);
-		
-		
+
 		systemTime = (TextView) findViewById(R.id.top_system_time);
 		systemTimeArea = (TextView) findViewById(R.id.top_system_time_area);
 		systemTime.setText(getSystemTime());
@@ -160,13 +167,13 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		weatherCity = (TextView) findViewById(R.id.top_weather_city);
-		//weatherLog2 = (ImageView) findViewById(R.id.top_weather_log2);
+		// weatherLog2 = (ImageView) findViewById(R.id.top_weather_log2);
 		weatherInfo = (TextView) findViewById(R.id.top_weather_info);
-		
+
 		topNetType = (ImageView) findViewById(R.id.top_net_type);
-		topNetType.setImageResource(R.drawable.wifi_n);//wifi图标
+		topNetType.setImageResource(R.drawable.wifi_n);// wifi图标
 
 		if (!Environment.getExternalStorageState().startsWith(
 				Environment.MEDIA_MOUNTED)) {
@@ -178,34 +185,39 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 
 	/**
 	 * 功能：获取系统时间，格式为24小时类型.
+	 * 
 	 * @return 当前系统时间的字符串。
 	 */
-	public String getSystemTime(){
+	public String getSystemTime() {
 		SimpleDateFormat sim = new SimpleDateFormat("hh:mm");
 		Date date = new Date(System.currentTimeMillis());
 		String str = sim.format(date);
 		return str;
 	}
-	
-	public String getSystemTimeArea() throws ParseException{
+
+	public String getSystemTimeArea() throws ParseException {
 		Calendar ca = Calendar.getInstance();
 		Date date = new Date(System.currentTimeMillis());
 		DateFormat sim = new SimpleDateFormat("hh:mm");
 		Date dateMiddle = sim.parse("12:00");
-		
+
 		if (date.getTime() < dateMiddle.getTime()) {
-			
+
 			return "AM";
 		} else {
 			return "PM";
 		}
 	}
-	
+
 	/**
 	 * 初始化每个RadioButton下的视图UI
-	 * @param nView 坐标
-	 * @param strTitle 每个RadioButton的title标题名
-	 * @param tilGroup TileGroup对象
+	 * 
+	 * @param nView
+	 *            坐标
+	 * @param strTitle
+	 *            每个RadioButton的title标题名
+	 * @param tilGroup
+	 *            TileGroup对象
 	 */
 	private void initView(int nView, String strTitle, TileGroup tilGroup) {
 		if (nView > 7)
@@ -213,15 +225,17 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 
 		RadioButton button = (RadioButton) findViewById(buttonID[nView]);
 		button.setText(strTitle);
-		Log.i("Contra", "HomeActivity strTitle====="+strTitle);
+		Log.i("Contra", "HomeActivity strTitle=====" + strTitle);
 
 		hotView[nView] = new PageViewLayout(this, tilGroup,
-				getExternalFilesDir(null).toString()); 
-		Log.i("Contra", "getExternalFilesDir(null).toString()====="+getExternalFilesDir(null).toString());
+				getExternalFilesDir(null).toString());
+		Log.i("Contra", "getExternalFilesDir(null).toString()====="
+				+ getExternalFilesDir(null).toString());
 		hotView[nView].requestFocus();
 		hotView[nView].initView();
 
 		pages.add(hotView[nView]);
+		
 	}
 
 	/**
@@ -235,7 +249,8 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 
 	private void registerReceiver() {
 		weatherReceiver = new WeatherReceiver();
-	    registerReceiver(weatherReceiver, new IntentFilter(WeatherReceiver.RESPONSE_WEATHER));		
+		registerReceiver(weatherReceiver, new IntentFilter(
+				WeatherReceiver.RESPONSE_WEATHER));
 		this.timeTickReceiver = new TimeTickReciver();
 		IntentFilter localIntentFilter = new IntentFilter();
 		localIntentFilter.addAction("android.intent.action.TIME_SET");
@@ -303,7 +318,7 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 					if (localNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
 						topNetType.setImageResource(R.drawable.wifi_n);
 					}
-					
+
 					sendBroadcast(new Intent(WeatherReceiver.RESPONSE_WEATHER));
 				} else {
 					topNetType.setImageResource(R.drawable.et_disconnected);
@@ -315,23 +330,26 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 
 	
 	public void initListener() {
-		final Animation animationBig = AnimationUtils.loadAnimation(HomeActivity.this, R.anim.radiobutton_anim_big);
-		final Animation animationSmall = AnimationUtils.loadAnimation(HomeActivity.this, R.anim.radiobutton_anim_small);
+		final Animation animationBig = AnimationUtils.loadAnimation(
+				HomeActivity.this, R.anim.radiobutton_anim_big);
+		final Animation animationSmall = AnimationUtils.loadAnimation(
+				HomeActivity.this, R.anim.radiobutton_anim_small);
 		OnFocusChangeListener focusListener = new OnFocusChangeListener() {
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				int position = (Integer) v.getTag();
 				if (hasFocus) {
 					centerPager.setCurrentItem(position, true);
-					titleGroup.getChildAt(position).startAnimation(animationBig);
+					titleGroup.getChildAt(position)
+							.startAnimation(animationBig);
 					animationBig.setFillAfter(true);
-				}
-				else{
-					titleGroup.getChildAt(position).startAnimation(animationSmall);
+				} else {
+					titleGroup.getChildAt(position).startAnimation(
+							animationSmall);
 				}
 			}
 		};
-		
+
 		for (int i = 0; i < titleGroup.getChildCount(); i++) {
 			View view = titleGroup.getChildAt(i);
 			view.setTag(i);
@@ -343,61 +361,67 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 			public void onPageSelected(int arg0) {
 				if (arg0 < titleGroup.getChildCount()) {
 					((RadioButton) titleGroup.getChildAt(arg0))
-					.setChecked(true);
+							.setChecked(true);
 				}
 			}
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
+
 			}
 
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
+
 			}
+
 		});
 
 		for (int i = 0; i < nHotViewCount; i++) {
 			hotView[i].initListener();
 		}
 	}
-	
+
 	protected int num = 0;
-	protected void setFlickerAnimation(final TextView view, final String str1, final String str2) {
+
+	protected void setFlickerAnimation(final TextView view, final String str1,
+			final String str2) {
 		view.setText(str1);
 		AlphaAnimation aa = new AlphaAnimation(0.0f, 1.0f);
 		aa.setDuration(4000L);
 		aa.setRepeatCount(-1);
 		aa.setAnimationListener(new Animation.AnimationListener() {
-			
+
 			@Override
 			public void onAnimationStart(Animation animation) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void onAnimationRepeat(Animation animation) {
 				// TODO Auto-generated method stub
 				num = 1 + num;
-				if (num == 10) num = 0;
+				if (num == 10)
+					num = 0;
 				if (num % 2 == 0) {
 					view.setText(str1);
 				} else {
 					view.setText(str2);
 				}
 			}
-			
+
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		view.startAnimation(aa);
 	}
 
 	@Override
-	public void updateWeather(CityWeatherInfoBean city) {		
+	public void updateWeather(CityWeatherInfoBean city) {
 		if (weatherCity != null)
 			weatherCity.setText(city.getCityName());
 		if (weatherInfo != null)
@@ -405,13 +429,12 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 
 		if (weatherLog2 != null)
 			weatherLog2.setVisibility(View.VISIBLE);
-		//weatherLog2.setImageResource(R.drawable.iweather_cloudy);
-		
+		// weatherLog2.setImageResource(R.drawable.iweather_cloudy);
+
 		String temp;
 		if (city.gettTemp() == null) {
 			temp = "无天气信息";
-		}
-		else {
+		} else {
 			temp = city.gettTemp() + "~" + city.getfTemp() + "℃";
 		}
 		setFlickerAnimation(weatherInfo, city.getWeatherInfo(), temp);

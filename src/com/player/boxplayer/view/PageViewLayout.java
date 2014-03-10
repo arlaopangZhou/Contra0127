@@ -157,7 +157,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 					Log.i("Contra", "PageViewLayout ====="+mImgBaseFolder + "/" + strImgName);
 					// Log.e("xml test", "set image uri " + file.toString());
 					if (file != null) {
-//						posts[i].setImageURI(Uri.fromFile(file));
+//						posts[i].setImageURI(Uri.fromFile(file));//设置显示的图片
 					}
 				}
 			} catch (Exception e) {
@@ -396,6 +396,10 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			effPos[2].SetParams(0, 0, 220, 220, 291f, 103f);
 			break;
 		case 4:
+			effPos[0].SetParams(0, 0, 220, 220, 413f, -103f);//控制边框宽高
+			effPos[1].SetParams(0, 0, 220, 220, 620f, -103f);
+			effPos[2].SetParams(0, 0, 220, 220, 413f, 103f);
+			effPos[3].SetParams(0, 0, 220, 220, 620f, 103f);
 			break;
 		case 5:
 			break;
@@ -405,11 +409,26 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			
 			break;
 		case 7:
-			effPos[6].SetParams(0, 0, 220, 220, 975f, 103f);
+			effPos[0].SetParams(0, 0, 445, 216, 120f, -101f);//控制边框宽高
+			effPos[1].SetParams(0, 0, 445, 220, 120f, 103f);
+			effPos[2].SetParams(0, 0, 220, 216, 425f, -101f);
+			effPos[3].SetParams(0, 0, 220, 216, 630f, -101f);
+			effPos[4].SetParams(0, 0, 220, 220, 425f, 103f);//9张图的中间竖图
+			effPos[5].SetParams(0, 0, 220, 220, 630f, 103f);
+			effPos[6].SetParams(0, 0, 292, 445, 868f, 0f);
+//			effPos[6].SetParams(0, 0, 220, 220, 975f, 103f);
 			break;
 		case 8:
-			effPos[6].xPos = 1386;
-			effPos[7].xPos = 1386;
+			effPos[0].SetParams(0, 0, 220, 220, 84f, -103f);//控制边框宽高
+			effPos[1].SetParams(0, 0, 220, 220, 84f, 103f);
+			effPos[2].SetParams(0, 0, 220, 220, 289f, 103f);
+			effPos[3].SetParams(0, 0, 220, 220, 494f, 103f);
+			effPos[4].SetParams(0, 0, 220, 220, 289f, -103f);//
+			effPos[5].SetParams(0, 0, 220, 220, 700f, -103f);
+			effPos[6].SetParams(0, 0, 220, 220, 700f, 103f);
+			effPos[7].SetParams(0, 0, 220, 220, 494f, -103f);
+//			effPos[6].xPos = 1386;
+//			effPos[7].xPos = 1386;
 			break;
 		case 9:
 			effPos[6].xPos = 1597;
@@ -430,7 +449,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 	/**
 	 * 设置每个页面的图片倒影效果
 	 * @param nIndex 图片数量
-	 * @param nCount 每个页面的图片数量。
+	 * @param nCount 每个页面的图片总数。
 	 */
 	private void ReflectedImage(int nIndex, int nCount) {
 		switch (nCount) {
@@ -443,6 +462,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refIndex++;
 			}
 			break;
+			
 		case 3:
 			if (nIndex == 0 || nIndex == 2) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
@@ -452,6 +472,18 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refIndex++;
 			}
 			break;
+			
+		case 4:
+			if (nIndex == 2 || nIndex == 3) {
+				refImageView[refIndex].setImageBitmap(ImageReflect
+						.createCutReflectedImage(
+								ImageReflect.convertViewToBitmap(fls[nIndex]),
+								0));
+				refIndex++;
+			}
+			break;
+			
+			
 		case 6:
 			if (nIndex == 0 || nIndex == 2 || nIndex == 3 || nIndex == 5) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
@@ -462,8 +494,8 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			}
 			break;
 		case 7:
-			if (nIndex == 0 || nIndex == 2 || nIndex == 3 || nIndex == 4
-					|| nIndex == 6) {
+			if (nIndex == 1 || nIndex == 4 || nIndex == 5 || nIndex == 6
+					) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
 						.createCutReflectedImage(
 								ImageReflect.convertViewToBitmap(fls[nIndex]),
@@ -471,6 +503,18 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refIndex++;
 			}
 			break;
+			
+		case 8:
+			if (nIndex == 1 || nIndex == 2 || nIndex == 3 || nIndex == 6
+					) {
+				refImageView[refIndex].setImageBitmap(ImageReflect
+						.createCutReflectedImage(
+								ImageReflect.convertViewToBitmap(fls[nIndex]),
+								0));
+				refIndex++;
+			}
+			break;
+			
 		case 9:
 			if (nIndex == 0 || nIndex == 2 || nIndex == 3 || nIndex == 4
 					|| nIndex == 7 || nIndex == 8) {
@@ -522,8 +566,8 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 						150, 0));
 				tvs[position].setVisibility(View.VISIBLE);
 				backGrounds[position].setVisibility(View.VISIBLE);
-				whiteBorder.setVisibility(View.VISIBLE);// 测试使用暂时显示
-//				whiteBorder.setVisibility(View.INVISIBLE);
+//				whiteBorder.setVisibility(View.VISIBLE);// 测试使用暂时显示
+				whiteBorder.setVisibility(View.INVISIBLE);
 			}
 		});
 		posts[position].startAnimation(anim1);

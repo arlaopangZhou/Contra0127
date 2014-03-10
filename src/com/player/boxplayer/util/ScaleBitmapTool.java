@@ -3,16 +3,6 @@ package com.player.boxplayer.util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.player.boxplayer.R;
-import com.player.boxplayer.tile.RemmondFilmTitle;
-
 public enum ScaleBitmapTool {
 
 	SINGLE;
