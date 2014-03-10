@@ -39,14 +39,15 @@
             <FrameLayout
                 android:id="@id/latest_recommend_fl_0"
                 android:layout_width="564dp"
-                android:layout_height="544dp" >
+                android:layout_height="497dp" >
 
                 <ImageView
                     android:id="@id/latest_recommend_bg_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:src="@drawable/shadow_square" />
+                    android:layout_marginTop="-45dp"
+                    android:layout_marginLeft="71dp"
+                    android:src="@drawable/big_square" />
 
                 <ImageView
                     android:id="@id/latest_recommend_poster_0"
@@ -68,8 +69,8 @@
                     style="@style/TextOnMainLayout_new"
                     android:layout_width="440dip"
                     android:layout_height="50dip"
-                    android:layout_marginLeft="96dp"
-                    android:layout_marginTop="396dp" />
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="395dp" />
             </FrameLayout>
 
             <FrameLayout

@@ -91,7 +91,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="top|center"
-            android:text="" />
+            android:background="@drawable/title_button_selector" />
 
         <RadioButton
             android:id="@+id/title_menu1"
@@ -103,7 +103,8 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="top|center"
-            android:text="" />
+            
+            android:background="@drawable/title_button_selector"  />
 
         <RadioButton
             android:id="@+id/title_menu2"
@@ -115,7 +116,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="top|center"
-            android:text="" />
+            android:background="@drawable/title_button_selector"  />
 
         <RadioButton
             android:id="@+id/title_menu3"
@@ -127,7 +128,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="top|center"
-            android:text="" />
+            android:background="@drawable/title_button_selector"  />
 
         <RadioButton
             android:id="@+id/title_menu4"
@@ -139,7 +140,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="top|center"
-            android:text="" />
+            android:background="@drawable/title_button_selector"  />
 
         <RadioButton
             android:id="@+id/title_menu5"
@@ -151,7 +152,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="top|center"
-            android:text="" />
+            android:background="@drawable/title_button_selector"  />
         
         <RadioButton
             android:id="@+id/title_menu6"
@@ -163,7 +164,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center"
-            android:text="" />
+            android:background="@drawable/title_button_selector"  />
         
         <RadioButton
             android:id="@+id/title_menu7"
@@ -175,7 +176,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center"
-            android:text="" />
+            android:background="@drawable/title_button_selector"  />
     </RadioGroup>
 
     <!-- <ImageView 
