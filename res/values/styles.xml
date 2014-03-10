@@ -8,7 +8,7 @@
     </style>
 
     <style name="TitleButton">
-        <item name="android:background">@drawable/title_button_selector</item>
+        <!-- <item name="android:background">@drawable/title_button_selector</item> -->
         <item name="android:textColor">@drawable/title_textcolor_selector</item>
         <item name="android:textSize">30dp</item>
     </style>
