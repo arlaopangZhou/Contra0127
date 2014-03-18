@@ -140,6 +140,7 @@
                     android:nextFocusDown="@id/main_search"
                     android:nextFocusLeft="@id/latest_recommend_poster_0"
                     android:nextFocusUp="@id/latest_recommend_poster_1"
+                    android:nextFocusRight="@id/latest_recommend"
                     android:scaleType="fitXY" 
                     android:src="@drawable/variety" />
 

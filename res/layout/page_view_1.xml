@@ -60,7 +60,7 @@
                     style="@style/TextOnMainLayout_new"
                     android:layout_width="440dp"
                     android:layout_height="50dip"
-                    android:layout_marginLeft="96dp"
+                    android:layout_marginLeft="95dp"
                     android:layout_marginTop="396dp" />
             </FrameLayout>
         </RelativeLayout>

@@ -163,7 +163,7 @@
             android:button="@null"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:gravity="center"
+            android:gravity="top|center"
             android:background="@drawable/title_button_selector"  />
         
         <RadioButton
@@ -175,7 +175,7 @@
             android:button="@null"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:gravity="center"
+            android:gravity="top|center"
             android:background="@drawable/title_button_selector"  />
     </RadioGroup>
 
