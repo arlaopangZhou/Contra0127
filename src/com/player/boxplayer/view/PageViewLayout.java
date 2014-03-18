@@ -1,4 +1,5 @@
 package com.player.boxplayer.view;
+
 /**
  * 每个ViewPage下面的布局。
  */
@@ -10,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -28,10 +30,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.player.boxplayer.R;
+import com.player.boxplayer.activity.TestPutExtra;
 import com.player.boxplayer.effect.ImageReflect;
 import com.player.boxplayer.effect.ScaleAnimEffect;
 import com.player.boxplayer.tile.Tile;
 import com.player.boxplayer.tile.TileGroup;
+import com.player.boxplayer.util.PutExtraParse;
 
 public class PageViewLayout extends LinearLayout implements TileGroupView,
 		OnClickListener, OnFocusChangeListener {
@@ -79,7 +83,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		refImageView[2] = (ImageView) findViewById(R.id.hot_reflected_img_2);
 		refImageView[3] = (ImageView) findViewById(R.id.hot_reflected_img_3);
 		refImageView[4] = (ImageView) findViewById(R.id.hot_reflected_img_4);
-		refImageView[5] = (ImageView) findViewById(R.id.hot_reflected_img_5); 
+		refImageView[5] = (ImageView) findViewById(R.id.hot_reflected_img_5);
 
 		fls[0] = (FrameLayout) findViewById(R.id.latest_recommend_fl_0);
 		fls[1] = (FrameLayout) findViewById(R.id.latest_recommend_fl_1);
@@ -125,11 +129,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		backGrounds[8] = (ImageView) findViewById(R.id.latest_recommend_bg_8);
 		backGrounds[9] = (ImageView) findViewById(R.id.latest_recommend_bg_9);
 
-		effPos[0] = new EffectPos(0, 0, 445, 442, 120f, 4f);//控制边框宽高
+		effPos[0] = new EffectPos(0, 0, 292, 445, 50f, 4f);// 控制边框宽高
 		effPos[1] = new EffectPos(0, 0, 445, 220, 391f, -103f);
 		effPos[2] = new EffectPos(0, 0, 220, 220, 289f, 103f);
 		effPos[3] = new EffectPos(0, 0, 220, 220, 494f, 103f);
-		effPos[4] = new EffectPos(0, 0, 292, 445, 734f, 0f);//9张图的中间竖图
+		effPos[4] = new EffectPos(0, 0, 292, 445, 734f, 0f);// 9张图的中间竖图
 		effPos[5] = new EffectPos(0, 0, 220, 220, 975f, -103f);
 		effPos[6] = new EffectPos(0, 0, 220, 220, 1181f, -103f);
 		effPos[7] = new EffectPos(0, 0, 445, 220, 1078f, 103f);
@@ -154,10 +158,9 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				String strImgName = mTitleGroup.getTileAt(i).getImageUrl();
 				if (strImgName.length() > 0) {
 					File file = new File(mImgBaseFolder + "/" + strImgName);
-					Log.i("Contra", "PageViewLayout ====="+mImgBaseFolder + "/" + strImgName);
 					// Log.e("xml test", "set image uri " + file.toString());
 					if (file != null) {
-//						posts[i].setImageURI(Uri.fromFile(file));//设置显示的图片
+						// posts[i].setImageURI(Uri.fromFile(file));//设置显示的图片
 					}
 				}
 			} catch (Exception e) {
@@ -167,9 +170,9 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		}
 
 		whiteBorder = (ImageView) findViewById(R.id.white_boder);
-		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(292, 445);//此处的尺寸要和首次进入界面的图片的尺寸一样。
-		lp.leftMargin = 100;//设置边框距离左边的距离尺寸
-		lp.topMargin = 0;//设置距离顶部的距离尺寸
+		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(292, 445);// 此处的尺寸要和首次进入界面的图片的尺寸一样。
+		lp.leftMargin = 100;// 设置边框距离左边的距离尺寸
+		lp.topMargin = 0;// 设置距离顶部的距离尺寸
 		whiteBorder.setLayoutParams(lp);
 	}
 
@@ -203,7 +206,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 
 	@Override
 	public void onFocusChange(View v, boolean hasFocus) {
-		
+
 		switch (v.getId()) {
 		case R.id.latest_recommend_poster_0:
 			if (hasFocus) {
@@ -317,6 +320,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 
 	/**
 	 * 焦点选中时的方格的动画以及图片框显示动画
+	 * 
 	 * @param toWidth
 	 * @param toHeight
 	 * @param toX
@@ -333,13 +337,15 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			animator.x(toX);
 			animator.y(toY);
 			animator.start();
-			
+
 		}
 	}
 
 	/**
 	 * 根据传入的单个网格图片的总数返回相应的布局文件。
-	 * @param nCount 传入的用于区分布局文件的字段。
+	 * 
+	 * @param nCount
+	 *            传入的用于区分布局文件的字段。
 	 * @return 相应的布局文件
 	 */
 	private int GetPageViewID(int nCount) {
@@ -381,7 +387,9 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 
 	/**
 	 * 设置每个网格的图标的坐标。
-	 * @param nCount 每个图标的标识。
+	 * 
+	 * @param nCount
+	 *            每个图标的标识。
 	 */
 	private void RelayoutPage(int nCount) {
 		switch (nCount) {
@@ -405,7 +413,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		case 6:
 			effPos[4].SetParams(0, 0, 220, 220, 699f, -101f);
 			effPos[5].SetParams(0, 0, 220, 220, 699f, 103f);
-			
+
 			break;
 		case 7:
 			effPos[0].SetParams(0, 0, 445, 216, 120f, -101f);
@@ -444,8 +452,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 
 	/**
 	 * 设置每个页面的图片倒影效果
-	 * @param nIndex 图片数量
-	 * @param nCount 每个页面的图片总数。
+	 * 
+	 * @param nIndex
+	 *            图片数量
+	 * @param nCount
+	 *            每个页面的图片总数。
 	 */
 	private void ReflectedImage(int nIndex, int nCount) {
 		switch (nCount) {
@@ -454,11 +465,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refImageView[refIndex].setImageBitmap(ImageReflect
 						.createCutReflectedImage(
 								ImageReflect.convertViewToBitmap(fls[nIndex]),
-								0)); 
+								0));
 				refIndex++;
 			}
 			break;
-			
+
 		case 3:
 			if (nIndex == 0 || nIndex == 2) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
@@ -468,7 +479,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refIndex++;
 			}
 			break;
-			
+
 		case 4:
 			if (nIndex == 1 || nIndex == 2) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
@@ -478,8 +489,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refIndex++;
 			}
 			break;
-			
-			
+
 		case 6:
 			if (nIndex == 0 || nIndex == 2 || nIndex == 3 || nIndex == 5) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
@@ -490,8 +500,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			}
 			break;
 		case 7:
-			if (nIndex == 1 || nIndex == 4 || nIndex == 5 || nIndex == 6
-					) {
+			if (nIndex == 1 || nIndex == 4 || nIndex == 5 || nIndex == 6) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
 						.createCutReflectedImage(
 								ImageReflect.convertViewToBitmap(fls[nIndex]),
@@ -499,10 +508,9 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refIndex++;
 			}
 			break;
-			
+
 		case 8:
-			if (nIndex == 1 || nIndex == 2 || nIndex == 3 || nIndex == 6
-					) {
+			if (nIndex == 1 || nIndex == 2 || nIndex == 3 || nIndex == 6) {
 				refImageView[refIndex].setImageBitmap(ImageReflect
 						.createCutReflectedImage(
 								ImageReflect.convertViewToBitmap(fls[nIndex]),
@@ -510,7 +518,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				refIndex++;
 			}
 			break;
-			
+
 		case 9:
 			if (nIndex == 0 || nIndex == 2 || nIndex == 3 || nIndex == 4
 					|| nIndex == 7 || nIndex == 8) {
@@ -536,9 +544,11 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 
 	/**
 	 * 显示每个图片的移动动画
-	 * @param position 传入的网格图片的坐标。
+	 * 
+	 * @param position
+	 *            传入的网格图片的坐标。
 	 */
-	private void showOnFocusAnimation(final int position) { 
+	private void showOnFocusAnimation(final int position) {
 		fls[position].bringToFront();
 		animEffect.setAttributs(1.0f, 1.10f, 1.0f, 1.10f, 100);
 		Animation anim1 = animEffect.createAnimation();
@@ -590,9 +600,20 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			Intent intent = new Intent();
 			intent.setClassName(tile.getTarget(), tile.getActivity());
 			intent.putExtra("desc", tile.getDesc());
+
+			int typeInt = Integer.parseInt(tile.getKeytype());
+			Object object = PutExtraParse.SINGLE.getExtraString(typeInt, tile.getExtra());
+			intent.putExtra(tile.getKey(),  object.toString());
+			
+			if (tile.getBundlename()!=null) {
+				Bundle bundle = PutExtraParse.SINGLE.getBundleData(mContext, tile.getBundlename());
+				intent.putExtra(tile.getBundlekey(), bundle);
+				intent.putExtras(bundle);
+			}
+			
 			mContext.startActivity(intent);
 		} catch (Exception e) {
-			
+
 		}
 	}
 
@@ -622,7 +643,7 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 			fToY = fy;
 		}
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub

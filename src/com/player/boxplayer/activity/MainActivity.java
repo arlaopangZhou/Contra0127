@@ -4,6 +4,7 @@ import com.player.boxplayer.R;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.app.Activity;
 import android.content.Intent;
 
@@ -13,7 +14,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		Intent in = getIntent();
+		String ins = in.getStringExtra("extra");
 		PreWorkerTask preWorker = new PreWorkerTask();
 		preWorker.execute(new String[0]);
 	}

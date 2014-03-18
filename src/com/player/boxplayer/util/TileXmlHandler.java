@@ -22,6 +22,13 @@ public class TileXmlHandler extends DefaultHandler {
 	private final String DESC = "desc";
 	private final String TARGET = "target";
 	private final String ACTIVITY = "activity";
+	
+	private final String KEY = "key";
+	private final String KEYTYPE = "keytype";
+	private final String EXTRA = "extra";
+	private final String BUNDLENAME = "bundlename";
+	private final String BUNDLEKEY = "bundlekey";
+	
 	private Tile search;
 
 	public void setDir(String dir) {
@@ -48,7 +55,7 @@ public class TileXmlHandler extends DefaultHandler {
 		if (localName.equalsIgnoreCase(CATE)) {
 			tg = new TileGroup();
 			tg.setTitle(attributes.getValue(NAME));
-			tgs.add(tg);
+//			tgs.add(tg);
 		} else if (localName.equalsIgnoreCase(TILE)) {
 			Tile tile = new Tile();
 			tile.setTitle(attributes.getValue(NAME));
@@ -56,6 +63,12 @@ public class TileXmlHandler extends DefaultHandler {
 			tile.setDesc(attributes.getValue(DESC));
 			tile.setTarget(attributes.getValue(TARGET));
 			tile.setActivity(attributes.getValue(ACTIVITY));
+			
+			tile.setKey(attributes.getValue(KEY));
+			tile.setKeytype(attributes.getValue(KEYTYPE));
+			tile.setExtra(attributes.getValue(EXTRA));
+			tile.setBundlename(attributes.getValue(BUNDLENAME));
+			tile.setBundlekey(attributes.getValue(BUNDLEKEY));
 			tg.addTile(tile);
 		} else if (localName.equalsIgnoreCase(SEARCH)) {
 			if (search == null)
@@ -64,4 +77,15 @@ public class TileXmlHandler extends DefaultHandler {
 			search.setActivity(attributes.getValue(ACTIVITY));
 		}
 	}
+	
+	@Override
+	public void endElement(String uri, String localName, String qName)
+			throws SAXException {
+		// TODO Auto-generated method stub
+		super.endElement(uri, localName, qName);
+		if (localName.equals(CATE)) {
+			tgs.add(tg);
+		}
+	}
+	
 }

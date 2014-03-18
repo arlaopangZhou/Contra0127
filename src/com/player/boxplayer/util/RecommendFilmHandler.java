@@ -11,8 +11,7 @@ import com.player.boxplayer.tile.RemmondFilmTitle;
 
 public class RecommendFilmHandler extends DefaultHandler {
 
-	private final String BACKGROUP = "backgroup";
-	// private final String FILMTV = "filmtv";
+	private final String BACKGROUP = "backgroup";//背景图片。
 	private final String TILE = "tile";
 	private final String IMG = "image";
 	private final String NAME = "name";
@@ -55,7 +54,6 @@ public class RecommendFilmHandler extends DefaultHandler {
 			reTileList.add(reTile);
 		} else if (localName.equalsIgnoreCase(BACKGROUP)) {
 			backGrop = attributes.getValue(IMG);
-//			Log.i("Contra", "BACKGROUP === "+attributes.getValue(IMG));
 			reTile.setBgImageUrl(attributes.getValue(IMG));
 		}
 	}
@@ -65,8 +63,5 @@ public class RecommendFilmHandler extends DefaultHandler {
 			throws SAXException {
 		// TODO Auto-generated method stub
 		super.endElement(uri, localName, qName);
-		// if(localName.equalsIgnoreCase("BACKGROUP")){
-		// reTileList.add(reTile);
-		// }
 	}
 }
