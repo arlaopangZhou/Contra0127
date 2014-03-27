@@ -55,7 +55,6 @@ public class TileXmlHandler extends DefaultHandler {
 		if (localName.equalsIgnoreCase(CATE)) {
 			tg = new TileGroup();
 			tg.setTitle(attributes.getValue(NAME));
-//			tgs.add(tg);
 		} else if (localName.equalsIgnoreCase(TILE)) {
 			Tile tile = new Tile();
 			tile.setTitle(attributes.getValue(NAME));

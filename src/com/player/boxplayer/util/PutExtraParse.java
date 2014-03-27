@@ -48,8 +48,6 @@ public enum PutExtraParse {
 		
 		Bundle bundle = new Bundle();
 		if (bundleTiles.size() == 0) {
-			Log.i("Contra",
-					"bundleTiles ====  null!!!!!" );
 			return null;
 		}
 		

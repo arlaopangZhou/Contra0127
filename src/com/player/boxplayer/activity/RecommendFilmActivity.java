@@ -143,8 +143,5 @@ public class RecommendFilmActivity extends Activity {
 	private void initView() {
 		// TODO Auto-generated method stub
 		gallryView = (Gallery) findViewById(R.id.galleryView);
-		
-		
-//		getWindow().setBackgroundDrawableResource(R.drawable.back_recommend);
 	}
 }

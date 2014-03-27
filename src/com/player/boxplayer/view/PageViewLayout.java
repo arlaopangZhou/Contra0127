@@ -158,7 +158,6 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 				String strImgName = mTitleGroup.getTileAt(i).getImageUrl();
 				if (strImgName.length() > 0) {
 					File file = new File(mImgBaseFolder + "/" + strImgName);
-					// Log.e("xml test", "set image uri " + file.toString());
 					if (file != null) {
 						// posts[i].setImageURI(Uri.fromFile(file));//设置显示的图片
 					}
@@ -170,9 +169,9 @@ public class PageViewLayout extends LinearLayout implements TileGroupView,
 		}
 
 		whiteBorder = (ImageView) findViewById(R.id.white_boder);
-		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(292, 445);// 此处的尺寸要和首次进入界面的图片的尺寸一样。
-		lp.leftMargin = 100;// 设置边框距离左边的距离尺寸
-		lp.topMargin = 0;// 设置距离顶部的距离尺寸
+		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(292, 445);
+		lp.leftMargin = 100;
+		lp.topMargin = 0;
 		whiteBorder.setLayoutParams(lp);
 	}
 

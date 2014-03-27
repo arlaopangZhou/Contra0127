@@ -116,7 +116,6 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 					}
 				});
 
-				// Log.i("xml test", "has tile groups " + list.size());
 				for (int i = 0; i < list.size(); i++) {
 					TileGroup tg = list.get(i);
 					initView(i, tg.getTitle(), tg);
@@ -169,7 +168,6 @@ public class HomeActivity extends Activity implements WeatherUpdateListener {
 		}
 
 		weatherCity = (TextView) findViewById(R.id.top_weather_city);
-		// weatherLog2 = (ImageView) findViewById(R.id.top_weather_log2);
 		weatherInfo = (TextView) findViewById(R.id.top_weather_info);
 
 		topNetType = (ImageView) findViewById(R.id.top_net_type);

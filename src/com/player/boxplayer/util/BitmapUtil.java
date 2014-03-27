@@ -22,7 +22,7 @@ import com.example.android.bitmapfun.util.DiskLruCache;
 //import com.player.boxplayer.https.HttpUtils;
 
 /**
- * Ê¹ÓÃ ÄÚ´æÓ²ÅÌ Ë«ÖØ»º´æ
+ * Ê¹ï¿½ï¿½ ï¿½Ú´ï¿½Ó²ï¿½ï¿½ Ë«ï¿½Ø»ï¿½ï¿½ï¿½
  * 
  * @author shenhui
  * 
@@ -58,7 +58,7 @@ public class BitmapUtil {
 	}
 
 	/**
-	 * µÃµ½Ö¸¶¨´óÐ¡µÄ bitmap
+	 * ï¿½Ãµï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ bitmap
 	 * 
 	 * @param data
 	 * @param width
@@ -76,13 +76,13 @@ public class BitmapUtil {
 	}
 
 	/**
-	 * ¼ÆËãËõ·Å±ÈÀý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
 	 * 
 	 * @param options
 	 * @param reqWidth
-	 *            Ä¿±ê¿í
+	 *            Ä¿ï¿½ï¿½ï¿½
 	 * @param reqHeight
-	 *            Ä¿±ê¸ß
+	 *            Ä¿ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	private int calculateInSampleSize(BitmapFactory.Options options,
@@ -103,13 +103,13 @@ public class BitmapUtil {
 			}
 		}
 
-		Log.d("", "Ô­Í¼³ß´ç£º" + width + "x" + height + ",Êµ¼Ê³ß´ç£º" + reqWidth + "x"
+		Log.d("", "Ô­Í¼ï¿½ß´ç£º" + width + "x" + height + ",Êµï¿½Ê³ß´ç£º" + reqWidth + "x"
 				+ reqHeight + ",inSampleSize = " + inSampleSize);
 		return inSampleSize;
 	}
 
 	/**
-	 * Ö±½Ó´ÓÍøÂç »ñÈ¡ Í¼Æ¬ ²»»º´æ
+	 * Ö±ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¡ Í¼Æ¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param url
 	 * @return
@@ -127,14 +127,14 @@ public class BitmapUtil {
 	}
 
 	/**
-	 * ¸Ã·½·¨Îª¾²Ì¬·½·¨£¬´ÓÍøÂçÏÂÔØÍ¼Æ¬£¬Èç¹ûÓ²ÅÌÓÐÊý¾Ý £¬ÓÅÏÈ´ÓÓ²ÅÌ»º´æ»ñÈ¡<br>
-	 * ²¢¼ÓÈëµ½ÄÚ´æ»º´æºÍ Ó²ÅÌ»º´æ<br>
-	 * ´æÔÚÍøÂçÏÂÔØ£¬Ö»ÄÜÔËÐÐÔÚ¹¤×÷Ïß³Ì<br>
+	 * ï¿½Ã·ï¿½ï¿½ï¿½Îªï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½Ó²ï¿½Ì»ï¿½ï¿½ï¿½ï¿½È¡<br>
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ëµ½ï¿½Ú´æ»ºï¿½ï¿½ï¿½ Ó²ï¿½Ì»ï¿½ï¿½ï¿½<br>
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½<br>
 	 * 
 	 * @param context
 	 * @param url
 	 * @param isLurCache
-	 *            ÊÇ·ñ¼ÓÈëµ½ÄÚ´æ»º´æ£¬ºóÌ¨¸üÐÂµÄÊ±ºò²»ÐèÒª¼ÓÈëµ½ÄÚ´æ»º´æ
+	 *            ï¿½Ç·ï¿½ï¿½ï¿½ëµ½ï¿½Ú´æ»ºï¿½æ£¬ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½Âµï¿½Ê±ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ëµ½ï¿½Ú´æ»ºï¿½ï¿½
 	 * @return
 	 */
 	public static Bitmap getBitmap(Context context, String url,
@@ -192,7 +192,7 @@ public class BitmapUtil {
 						.getContent());
 			}
 			if (bitmap == null) {
-				Log.e(TAG, "getBitmapFromNet ÏÂÔØÊ§°Ü " + retryCount + " ´Î, url = "
+				Log.e(TAG, "getBitmapFromNet ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ " + retryCount + " ï¿½ï¿½, url = "
 						+ url);
 			}
 			// }
@@ -201,17 +201,6 @@ public class BitmapUtil {
 			get.abort();
 			client.getConnectionManager().shutdown();
 		}
-
-		// while(bitmap == null && retryCount < 3){
-		// retryCount ++ ;
-		// byte[] data = HttpUtils.getBinary(url, null, null);
-		// if (data != null) {
-		// bitmap = getBitmap(data, width, height);
-		// }
-		// if(bitmap == null){
-		// Log.e(TAG, "getBitmapFromNet ÏÂÔØÊ§°Ü "+retryCount+" ´Î, url = " +url) ;
-		// }
-		// }
 		return bitmap;
 	}
 

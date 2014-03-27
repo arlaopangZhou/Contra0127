@@ -305,7 +305,6 @@ public class VideoDetailsActivity extends BaseActivity implements OnKeyListener 
 				try {
 					File configFile = new File(getExternalFilesDir(null),
 							videoInfoFilePath);
-//					Log.i("Contra", "VideoDetailsActivity configFile.getAbsolutePath() ===="+configFile.getPath());
 					FileInputStream videoStream = new FileInputStream(configFile);
 					SAXParserFactory factory = SAXParserFactory.newInstance();
 					SAXParser parser = factory.newSAXParser();
